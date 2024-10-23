@@ -8625,3 +8625,11 @@ k create deploy test --image=buxybox:1.28 $dry
 ```
 
 - https://killer.sh/killercoda-access
+
+### Take a shell on a node 
+```bash
+kubectl debug node/gke-cluster-1-default-pool-456e988f-czg5 -it --image=ubuntu
+
+# use chroot /host in your debug container to access the host's root filesystem
+chroot /host
+```
