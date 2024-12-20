@@ -8633,3 +8633,8 @@ kubectl debug node/gke-cluster-1-default-pool-456e988f-czg5 -it --image=ubuntu
 # use chroot /host in your debug container to access the host's root filesystem
 chroot /host
 ```
+
+### Kubernetes Troubleshooting
+```bash
+k logs pod/podname -n default --timestamps --since=1h
+```
