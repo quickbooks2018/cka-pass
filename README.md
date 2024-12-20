@@ -8636,5 +8636,39 @@ chroot /host
 
 ### Kubernetes Troubleshooting
 ```bash
+# Timestamps
 k logs pod/podname -n default --timestamps --since=1h
+
+# Timestamps follow
+k logs pod/podname -n default --timestamps -f
+
+# Search for a specific string in pod logs
+k logs pod/podname -n default | grep "error"
+
+# Search for a string with context (3 lines before and after)
+k logs pod/podname -n default | grep -A 3 -B 3 -C5 "error"
+
+# Case insensitive search
+k logs pod/podname -n default | grep -i "error"
+
+# Count occurrences of a string
+k logs pod/podname -n default | grep -c "error"
+
+# Show logs for previous container instance
+k logs pod/podname -n default --previous | grep "error"
+
+# Combine with timestamps and search
+k logs pod/podname -n default --timestamps | grep "error"
+
+# Multiple string patterns (OR condition)
+k logs pod/podname -n default | grep -E "error|warning|failed"
+
+# Search in multiple pods matching a label
+k logs -l app=myapp -n default | grep "error"
+
+# Save matching logs to a file
+k logs pod/podname -n default | grep "error" > error_logs.txt
+
+# Show only matched string with line numbers
+k logs pod/podname -n default | grep -n "error"
 ```
