@@ -8672,3 +8672,8 @@ k logs pod/podname -n default | grep "error" > error_logs.txt
 # Show only matched string with line numbers
 k logs pod/podname -n default | grep -n "error"
 ```
+
+### Debug pod
+```bash
+k debug pod/POD-NAME -n default -it --image=google/cloud-sdk:latest -- bash
+```
