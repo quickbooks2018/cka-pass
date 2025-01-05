@@ -8675,5 +8675,7 @@ k logs pod/podname -n default | grep -n "error"
 
 ### Debug pod
 ```bash
-k debug pod/POD-NAME -n default -it --image=google/cloud-sdk:latest -- bash
+k -n default debug pod/POD-NAME -it --image=google/cloud-sdk:latest -- bash
 ```
+
+
