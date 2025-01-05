@@ -8681,6 +8681,13 @@ kubectl -n default exec pod/POD-NAME -it -c CONTAINER-NAME -- bash        # Atta
 
 # see process of application running container by using flag "target"
 k -n default debug pod/POD-NAME -it --image=google/cloud-sdk:latest --target CONTAINER-NAME -- bash
+
+ps aux
+
+cd into PROCESS 1
+cd /proc
+pwd
+/proc/1/root/etc/nginx/conf.d
 ```
 
 
