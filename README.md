@@ -8675,7 +8675,9 @@ k logs pod/podname -n default | grep -n "error"
 
 ### Debug pod
 ```bash
-k -n default debug pod/POD-NAME -it --image=google/cloud-sdk:latest -- bash
+k -n default debug pod/POD-NAME -it --image=google/cloud-sdk:latest -- bash # this command will give container example debugger-jtblw
+
+kubectl -n default exec pod/POD-NAME -it -c CONTAINER-NAME -- bash
 ```
 
 
