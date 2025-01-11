@@ -8711,7 +8711,8 @@ For each active service in a pod's namespace, Kubernetes creates environment var
 {SVCNAME}_PORT_{PORT}_TCP_ADDR: Contains IP address
 ```
 - Effect of enable and disable kubernetes deployments?
+```txt
 ServiceLinks automatically inject environment variables for all Services in a namespace into each Pod.
 Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
 Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
-
+```
