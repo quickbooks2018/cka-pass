@@ -8695,4 +8695,23 @@ pwd
 /proc/1/root/etc/nginx/conf.d
 ```
 
+### ServiceLinks in kubernetes deployments
+- What are service links?
+ServiceLinks are environment variables that Kubernetes automatically injects into pods to provide information about services in the same namespace. These variables contain details like the service's IP address and port numbers.
+When ServiceLinks are enabled (default behavior):
+
+For each active service in a pod's namespace, Kubernetes creates environment variables following these patterns:
+
+```bash
+{SVCNAME}_SERVICE_HOST: Contains the service's cluster IP
+{SVCNAME}_SERVICE_PORT: Contains the service's port
+{SVCNAME}_PORT_{PORT}_TCP: Contains the protocol
+{SVCNAME}_PORT_{PORT}_TCP_PROTO: Contains protocol type
+{SVCNAME}_PORT_{PORT}_TCP_PORT: Contains port number
+{SVCNAME}_PORT_{PORT}_TCP_ADDR: Contains IP address
+```
+- Effect of enable and disable kubernetes deployments?
+ServiceLinks automatically inject environment variables for all Services in a namespace into each Pod.
+Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
+Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
 
