@@ -567,6 +567,10 @@ kubectl apply -f nginx-daemonset.yaml
 
 - location of kubelet config file
 ```bash
+systemctl cat kubelet
+```
+
+```bash
 cat /var/lib/kubelet/config.yaml
 ```
 
@@ -8716,3 +8720,4 @@ ServiceLinks automatically inject environment variables for all Services in a na
 Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
 Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
 ```
+
