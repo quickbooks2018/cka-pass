@@ -2196,6 +2196,11 @@ ifconfig
 
 - Kubernetes Ingress
 
+### nginx ingress controller installation
+```bash
+# Install nginx ingress controller (single command)
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.1/deploy/static/provider/baremetal/deploy.yaml
+```
 - Now, in k8s version 1.20+ we can create an Ingress resource from the imperative way like this:-
 
 - Format - kubectl create ingress <ingress-name> --rule="host/path=service:port"
@@ -8720,4 +8725,5 @@ ServiceLinks automatically inject environment variables for all Services in a na
 Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
 Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
 ```
+
 
