@@ -1399,6 +1399,17 @@ curl http://localhost:8080 -k
 
 ##### Role Based Access Control (RBAC)
 
+##### how to find which API group a resource belongs to:
+```bash
+controlplane:~$ kubectl api-resources | grep -i pod
+pods                                po           v1                                true         Pod
+podtemplates                                     v1                                true         PodTemplate
+horizontalpodautoscalers            hpa          autoscaling/v2                    true         HorizontalPodAutoscaler
+poddisruptionbudgets                pdb          policy/v1                         true         PodDisruptionBudget
+controlplane:~$ kubectl api-resources | grep -i deployment
+deployments                         deploy       apps/v1                           true         Deployment
+```
+
 - Create a role named pod-reader with the following parameters
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -8725,5 +8736,6 @@ ServiceLinks automatically inject environment variables for all Services in a na
 Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
 Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
 ```
+
 
 
