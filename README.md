@@ -3261,6 +3261,7 @@ openssl req -new -key john.key -out john.csr -subj "/CN=john/O=development"
 ```bash
 #!/bin/bash
 CSR=`cat myuser.csr | base64 | tr -d "\n"` # This command is alo in document do copy paste https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/
+CSR=$(cat myuser.csr | base64 -w 0) 
 cat <<EOF | kubectl apply -f -
 apiVersion: certificates.k8s.io/v1
 kind: CertificateSigningRequest
@@ -8738,6 +8739,7 @@ ServiceLinks automatically inject environment variables for all Services in a na
 Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
 Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
 ```
+
 
 
 
