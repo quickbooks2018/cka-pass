@@ -3240,6 +3240,8 @@ The user's identity is represented by a certificate issued by a trusted Certific
 Here's a high-level overview of the process to add a user and grant them access
 ```
 
+- https://kubernetes.io/docs/tasks/administer-cluster/certificates/ below steps are 1 and 5 mentioned in document search "openssl" and "csr"
+
 - Step-1: Generate Key and Certificate Signing Request (CSR) for the User
 - https://kubernetes.io/docs/reference/access-authn-authz/certificate-signing-requests/
 ```bash
@@ -8736,6 +8738,7 @@ ServiceLinks automatically inject environment variables for all Services in a na
 Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
 Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
 ```
+
 
 
 
