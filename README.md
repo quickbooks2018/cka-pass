@@ -6569,7 +6569,8 @@ There are two possible ways, one using podAntiAffinity and one using topologySpr
  
 
 PodAntiAffinity
-- Document seach for (hostname) https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
+- Document seach for (hostname)
+- https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -8769,6 +8770,7 @@ ServiceLinks automatically inject environment variables for all Services in a na
 Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
 Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
 ```
+
 
 
 
