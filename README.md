@@ -6569,6 +6569,36 @@ There are two possible ways, one using podAntiAffinity and one using topologySpr
  
 
 PodAntiAffinity
+- Document seach for (hostname) https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-cache
+spec:
+  selector:
+    matchLabels:
+      app: store
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: store
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - store
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: redis-server
+        image: redis:3.2-alpine
+```
 The idea here is that we create a "Inter-pod anti-affinity" which allows us to say a Pod should only be scheduled on a node where another Pod of a specific label (here the same label) is not already running.
 
 Let's begin by creating the Deployment template:
@@ -8739,6 +8769,7 @@ ServiceLinks automatically inject environment variables for all Services in a na
 Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
 Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
 ```
+
 
 
 
