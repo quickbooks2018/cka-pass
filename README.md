@@ -4190,6 +4190,12 @@ rpm -qc kubelet
 kubectl get pods -o wide -n kube-system --no-headers | awk '{print $1,$8}' > pod.txt
 ```
 
+### Remove Headers with awk
+```bash
+kubectl get ns | awk 'NR>1 {print $1}'
+
+kubectl get ns --no-headers | awk '{print $1}'
+```
 
 ### Troubleshooting tips and tricks
 - if service is exposed see the PROTOCOL as well, is it TCP or UDP
@@ -8770,6 +8776,7 @@ ServiceLinks automatically inject environment variables for all Services in a na
 Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
 Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
 ```
+
 
 
 
