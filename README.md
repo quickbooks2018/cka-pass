@@ -3398,7 +3398,7 @@ spec:
 k run busybox --image=busybox:latest -n default -- sleep infinity
 ```
 
-### VIM for quick indentation fix <---> use Visual mode
+### VIM for quick indentation fix <---> use Visual mode to select all
 ```bash
 shift + > (select the lines)
 shift + < to move left
@@ -8776,6 +8776,7 @@ ServiceLinks automatically inject environment variables for all Services in a na
 Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
 Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
 ```
+
 
 
 
