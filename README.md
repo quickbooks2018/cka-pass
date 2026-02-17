@@ -543,7 +543,7 @@ The following operators can only be used with nodeAffinity.
 
 **Note:** Gt and Lt operators will not work with non-integer values. If the given value doesn't parse as an integer, the pod will fail to get scheduled. Also, Gt and Lt are not available for podAffinity.
 
-## VIM quick yaml edit (to move the text to right)  ---> shift+V & shift+>
+## VIM quick yaml edit (to move the text to right)  ---> INSERT MODE for paste than (VISUAL MODE to select all) ---> shift+V & shift+>
 
 - Create a daemonset with kubectl 
 - Note: from explanation of daemonset, check the kind type & than update the yaml file, after applying, you will some errors, example replicas is not allowed in daemonset, so remove the replicas from yaml file & apply again, also remove "spec.strategy" from yaml file.
@@ -8776,6 +8776,7 @@ ServiceLinks automatically inject environment variables for all Services in a na
 Enabling them (true) makes service discovery easy via environment variables but can clutter the environment.
 Disabling them (false) promotes cleaner Pods, fewer potential conflicts, and pushes you to use DNS (or other methods) for service discovery.
 ```
+
 
 
 
